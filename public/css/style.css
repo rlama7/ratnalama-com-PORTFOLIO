@@ -1,0 +1,331 @@
+body {
+  font-family: "Open Sans";
+  background-color: #a8d5f0;
+}
+
+/*
+* Headers
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Lato";
+}
+
+/*
+* Containers
+*/
+.container {
+  padding: 40px 20px;
+}
+
+.container-spacy {
+  padding: 80px 20px;
+}
+
+/*
+* Backgrounds
+*/
+.background-orange {
+  background-image: url("images/imagine.jpg");
+  background-color: #f8bc3b;
+}
+
+.background-white {
+  background-color: #fff;
+}
+
+.background-green {
+  background-color: #27ae60;
+}
+
+.background-grey {
+  background-color: #3a3a3a;
+}
+
+.background-red {
+  background-color: #db5940;
+}
+
+.background-yellow {
+  background-color: #fec400;
+}
+
+.background-baby-blue {
+  background-color: #7ecefd;
+}
+
+.background-pale-blue {
+  background-color: #d1e1ed;
+}
+
+.background-slate-blue {
+  background-color: #2c3e50;
+}
+
+.background-midnight {
+  background-color: #1f1f1f;
+}
+
+.background-blue {
+  background-color: #028ca6;
+}
+
+.background-purple {
+  background-color: #572131;
+}
+
+/*
+* Header
+*/
+header#main {
+  margin-bottom: 40px;
+}
+
+header#main .brand a {
+  display: block;
+  font-family: "Pacifico";
+  font-size: 2em;
+  color: #393f4a;
+  margin-bottom: 20px;
+}
+
+/*
+* Nav
+*/
+/* nav#main ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+} */
+
+/* nav#main ul li {
+  display: inline-block;
+  margin-right: 20px;
+} */
+
+/* nav#main ul li:last-child {
+  margin-right: 0;
+} */
+
+/* nav#main ul li a {
+  font-size: 78%;
+  text-transform: uppercase;
+  font-weight: 600;
+} */
+
+/* nav#main ul li a:not(.btn) {
+  color: #393f4a;
+} */
+
+/*
+* Buttons (btn)
+*/
+.btn {
+  padding: 14px 30px;
+  border-radius: 5px;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background: #3a3a3a;
+  color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+  background: #fff;
+  color: #3a3a3a;
+}
+
+/*
+* Feature #1
+*/
+.feature {
+  margin-top: 10px;
+}
+
+.feature h1 {
+  font-size: 5.5em;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 70px;
+  margin-bottom: 40px;
+}
+
+/*
+* Feature #2
+*/
+.feature2 {
+  text-align: center;
+}
+
+.feature2 h2 {
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.feature2 ul li {
+  list-style: none;
+  text-align: left;
+  font-size: 0.95em;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.feature2 h5 {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.feature2 p {
+  font-size: 90%;
+  margin-bottom: 40px;
+}
+
+.feature2 img {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+/*
+* Projects
+*/
+.projects {
+  text-align: center;
+}
+
+.projects h2 {
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.projects h5 {
+  color: #fff;
+}
+
+.projects p {
+  margin: 20px;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+.projects .item {
+  padding: 100px 0;
+  margin-top: 30px;
+}
+
+.projects img {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.projects ul li a {
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 800;
+}
+
+.projects ul li a:hover {
+  border: 2px solid #fff;
+}
+
+.projects ul li.selected a {
+  background: #fff;
+  color: #27ae60;
+}
+
+.projects .show-more {
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+/*
+* Lists
+*/
+.inline-list {
+  list-style: none;
+}
+
+.inline-list li {
+  display: inline-block;
+  margin: 0 20px;
+  margin-bottom: 20px;
+}
+
+/*
+* Skill
+*/
+.skill {
+  text-align: center;
+}
+
+.skill h2 {
+  color: #2c3e50;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.skill h5 {
+  color: #183668;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.skill ul li {
+  color: #fff;
+  list-style: none;
+  text-align: left;
+  font-size: 1em;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+/*
+* About
+*/
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.about p {
+  margin: 20px;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/*
+* Footer
+*/
+.footer {
+  text-align: center;
+}
+
+.footer p {
+  color: #fff;
+  font-size: 90%;
+}
