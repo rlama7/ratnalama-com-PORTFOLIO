@@ -90,7 +90,7 @@ app.post("/contact", (req, res) => {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-    res.redirect("/contact");
+    res.redirect("/thankyou");
   });
 });
 
