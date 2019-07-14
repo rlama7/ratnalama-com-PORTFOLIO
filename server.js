@@ -71,7 +71,7 @@ app.post("/contact", (req, res) => {
     tls: {
       rejectUnauthorized: false
     }
-  });
+  }); // end createTransporter()
 
   // send email data with unicode symbols
   let mailOptions = {
@@ -80,18 +80,52 @@ app.post("/contact", (req, res) => {
     subject: "CONTACT US", // Subject line
     text: "Hello there?", // plain text body
     html: output // html body
-  };
+  }; // end mailOptions
 
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return console.log(error);
     }
+
+    // captcha validation
+    if (
+      req.body.captcha === undefined ||
+      req.body.captcha === "" ||
+      req.body.captcha === null
+    ) {
+      return res.json({ success: false, msg: "Please select captcha" });
+    }
+
+    // Secret Key
+    const secretKey = "________SECRET_KEY____________";
+
+    // Verify URL
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${
+      req.body.captcha
+    }&remoteip=${req.connection.remoteAddress}`;
+
+    // Make Request to VerifyURL
+    request(verifyUrl, (err, response, body) => {
+      body = JSON.parse(body);
+
+      // If Not Successful
+      if (body.success !== undefined && !body.success) {
+        return res.json({ success: false, msg: "Failed captcha verification" });
+      }
+
+      // If Successful
+      // return res.json({ success: true, msg: "Captcha verified successfully" });
+      console.log(
+        res.json({ success: true, msg: "Captcha verified successfully" })
+      );
+    });
+
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
     res.redirect("/thankyou");
-  });
+  }); // end sendMail()
 });
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

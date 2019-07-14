@@ -2,42 +2,84 @@
 <link rel="stylesheet" href="css/style-contact.css">
 
 <div class="container">
-  <h1 class="brand"><span>Contact Ratna Lama</span></h1>
+  <!-- <h1 class="brand"><span>Contact Ratna Lama</span></h1> -->
   <div class="wrapper animated bounceInLeft">
     <div class="company-info">
-      <h3>Thank you in advance for contacting.</h3>
-      <br />
-      <h3>I'll respond to your inquiry at the earliest convenience.</h3>
+      <h2>Contact Ratna Lama</h2>
+      <!-- <br />
+      <p>Thank you for contacting me.</p>
+      <p>I'll respond to your inquiry at the earliest convenience.</p> -->
     </div>
     <div class="contact">
-      <h3>Email Us</h3>
-      <form method="POST" action="contact">
+      <p>We hate spam as much as you. You can unsubscribe anytime. By entering your phone
+        number, you authorize us to contact you by phone.</p>
+      <!-- Begin Form -->
+      <form method="POST" action="contact" id="contactForm">
         <p>
           <label>Name</label>
-          <input type="text" name="name">
+          <input type="text" name="name" id="name">
         </p>
         <p>
           <label>Company</label>
-          <input type="text" name="company">
+          <input type="text" name="company" id="company">
         </p>
         <p>
           <label>Email Address</label>
-          <input type="email" name="email">
+          <input type="email" name="email" id="email">
         </p>
         <p>
           <label>Phone Number</label>
-          <input type="text" name="phone">
+          <input type="text" name="phone" id="phone">
         </p>
         <p class="full">
           <label>Message</label>
-          <textarea name="message" rows="5"></textarea>
+          <textarea name="message" id="message" rows="5"></textarea>
         </p>
+        <div class="form-group">
+          <div class="g-recaptcha" data-sitekey="___________SITE_KEY___________"></div>
+        </div>
         <p class="full">
-          <button type="submit">Submit</button>
+          <button type="submit" value="Submit">Submit</button>
         </p>
-      </form>
+      </form> <!-- End Form -->
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+  function submitForm(e) {
+    e.preventDefault();
+
+    const name = document.querySelector('#name').value;
+    const company = document.querySelector('#company').value;
+    const email = document.querySelector('#email').value;
+    const phone = document.querySelector('#phone').value;
+    const message = document.querySelector('#message').value;
+    const captcha = document.querySelector('#g-recaptcha-response').value;
+
+    fetch('/contact', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          company: company,
+          email: email,
+          phone: phone,
+          message: message,
+          captcha: captcha
+        })
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        alert(data.msg);
+      });
+  }
+</script>
 
 <%- include("footer") -%>
